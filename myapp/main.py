@@ -14,9 +14,124 @@ class Calculator(UserControl):
             route='/front_page',
             controls=[
                 Text(
-                    value='hello world'
+                    value='Rural Community Development Program',
+                    weight=FontWeight.BOLD,
+                    size=24,
+                    text_align=TextAlign.CENTER
+                ),
+                ListTile(
+                    leading=Container(
+                        width=5,
+                        height=40,
+                        bgcolor=self.primary_color
+                    ),
+                    title=Text(
+                        value='Area Manager',
+                        size=12,
+                        weight=FontWeight.BOLD,
+                        color=colors.with_opacity(0.25,'#000000')
+                    ),
+                    subtitle=Text(
+                        value='Syed Mohsin Shah Sahib',
+                        weight=FontWeight.BOLD,
+                        size=14,
+                        color=colors.with_opacity(0.50,'#000000')
+                    ),
+                    trailing=Column(
+                        controls=[
+                            Text(
+                                value='Area - 18',
+                                color=colors.with_opacity(0.25,'#000000'),
+                                weight=FontWeight.W_600
+                            )
+                        ]
+                    ),
+                    title_alignment=ListTileTitleAlignment.TOP
+                ),
+                CupertinoTextField(
+                    placeholder_text='Loan Amount',
+                    padding=padding.all(10),
+                    bgcolor=colors.with_opacity(0.05,'#000000'),
+                    border=border.all(0,colors.TRANSPARENT),
+                    border_radius=5,
+                    placeholder_style=TextStyle(
+                        color=colors.with_opacity(0.45,'#000000'),
+                        weight=FontWeight.W_600,
+                    ),
+                    text_style=TextStyle(
+                        color=colors.with_opacity(0.45,'#000000'),
+                        weight=FontWeight.W_600
+
+                    ),
+                    cursor_color=colors.with_opacity(0.45,'#000000'),
+                    cursor_width=2.5,
+                ),
+                CupertinoTextField(
+                    placeholder_text='No. of months',
+                    padding=padding.all(10),
+                    bgcolor=colors.with_opacity(0.05,'#000000'),
+                    border=border.all(0,colors.TRANSPARENT),
+                    border_radius=5,
+                    placeholder_style=TextStyle(
+                        color=colors.with_opacity(0.45,'#000000'),
+                        weight=FontWeight.W_600,
+                    ),
+                    text_style=TextStyle(
+                        color=colors.with_opacity(0.45,'#000000'),
+                        weight=FontWeight.W_600
+
+                    ),
+                    cursor_color=colors.with_opacity(0.45,'#000000'),
+                    cursor_width=2.5,
+                ),
+                CupertinoTextField(
+                    placeholder_text='Markup Rate',
+                    padding=padding.all(10),
+                    bgcolor=colors.with_opacity(0.05,'#000000'),
+                    border=border.all(0,colors.TRANSPARENT),
+                    border_radius=5,
+                    placeholder_style=TextStyle(
+                        color=colors.with_opacity(0.45,'#000000'),
+                        weight=FontWeight.W_600,
+                    ),
+                    text_style=TextStyle(
+                        color=colors.with_opacity(0.45,'#000000'),
+                        weight=FontWeight.W_600
+
+                    ),
+                    cursor_color=colors.with_opacity(0.45,'#000000'),
+                    cursor_width=2.5,
+                ),
+                CupertinoTextField(
+                    placeholder_text='Processing Rate',
+                    padding=padding.all(10),
+                    bgcolor=colors.with_opacity(0.05,'#000000'),
+                    border=border.all(0,colors.TRANSPARENT),
+                    border_radius=5,
+                    placeholder_style=TextStyle(
+                        color=colors.with_opacity(0.45,'#000000'),
+                        weight=FontWeight.W_600,
+                    ),
+                    text_style=TextStyle(
+                        color=colors.with_opacity(0.45,'#000000'),
+                        weight=FontWeight.W_600
+
+                    ),
+                    cursor_color=colors.with_opacity(0.45,'#000000'),
+                    cursor_width=2.5,
+                ),
+                CupertinoButton(
+                    text='Calculate',
+                    bgcolor=colors.with_opacity(0.3,self.primary_color),
+                    color=self.primary_color,
+                    width=350,
+                    height=40,
+                    padding=padding.all(0),
+                    border_radius=5
                 )
-            ]
+            ],
+            vertical_alignment=MainAxisAlignment.CENTER,
+            horizontal_alignment=CrossAxisAlignment.CENTER
         )
         self.page.views.append(front_page)
 
