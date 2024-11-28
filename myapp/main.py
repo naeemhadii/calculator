@@ -76,7 +76,7 @@ class Calculator(UserControl):
         self.page.views.append(self.front_page)
 
     def ViewResult(self,value):
-        ResultPage(self.page,self.primary_color,self.secondary_color,value)
+        result_page = ResultPage(self.page,self.primary_color,self.secondary_color)
         self.page.go('/result_page')
         self.page.update()
         
