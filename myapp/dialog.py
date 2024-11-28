@@ -43,11 +43,11 @@ class AlertBox(UserControl):
                         Row(
                             controls=[
                                 TextButton(
-                                    text='Close',
+                                    text='Cancel',
                                     height=50,
                                     on_click=lambda e: self.ClosedButton(self.loan_dialog),
                                     style=ButtonStyle(
-                                        color='#DA7756'
+                                        color='#F44336'
                                     )
                                 ),
                             ],
