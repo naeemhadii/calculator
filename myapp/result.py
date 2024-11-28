@@ -99,61 +99,7 @@ class ResultPage(UserControl):
     def ClickedButton(self, value):
         if value == 'Processing':
             # Show a dialog or a proper PopupMenu instead
-            self.page.dialog = AlertDialog(
-                title=Text(
-                    "Processing Action",
-                    size=18,
-                    weight=FontWeight.BOLD
-                    ),
-                content=Column(
-                    controls=[
-                        Icon(icons.LOCAL_ACTIVITY, size=40, color=self.primary_color),
-                        Text("Details about processing fee and actions"),
-                        ListTile(
-                            leading=
-                                    Text(
-                                        value='1.',
-                                        size=22,
-                                        weight=FontWeight.BOLD
-                            ),
-                            title=Text(
-                                value="1% is insurance fee"
-                            ),
-                            subtitle=Text(
-                                value='This 1% is insurance fee of our client that if a client is died during loan cycle we support him or her'
-                            )
-                        ),
-                        ListTile(
-                            leading=
-                                    Text(
-                                        value='2.',
-                                        size=22,
-                                        weight=FontWeight.BOLD
-                            ),
-                            title=Text(
-                                value="2.5% is insitute expenses"
-                            ),
-                            subtitle=Text(
-                                value='This 1% is insurance fee of our client that if a client is died during loan cycle we support him or her'
-                            )
-                        ),
-
-                    ]
-                ),
-                actions=[
-                    CupertinoButton(
-                        "Close",
-                        on_click=lambda e: self.DialogAction(),
-                        bgcolor=self.primary_color,
-                        width=100,
-                        height=30,
-                        padding=padding.all(0)
-                        
-                    )
-                ],
-            )
-            self.page.dialog.open = True
-            self.page.update()
+            pass
     def DialogAction(self):
         if self.page.dialog.open == True:
             self.page.dialog.open = False
