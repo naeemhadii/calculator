@@ -36,7 +36,7 @@ class MsgBox(UserControl):
                         Row(
                             controls=[
                                 TextButton(
-                                    text='Cancel',
+                                    text='Close',
                                     height=50,
                                     on_click=lambda e: self.ClosedButton(self.dialog),
                                     style=ButtonStyle(

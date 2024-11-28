@@ -17,9 +17,9 @@ class AlertBox(UserControl):
     def AlertMsg(self,item):
         if item in self.boxs:
             if item == 'Loan Amount':
-                self.loan_dialog = MsgBox(self.page,self.primary_color,self.secondary_color,item,self.boxs[item],icons.WALLET_GIFTCARD)
+                self.loan_dialog = MsgBox(self.page,self.primary_color,self.secondary_color,item,self.boxs[item],icons.MONEY)
             elif item == 'Processing Fee Rate':
-                self.loan_dialog = MsgBox(self.page,self.primary_color,self.secondary_color,item,self.boxs[item],icons.MONETIZATION_ON)
+                self.loan_dialog = MsgBox(self.page,self.primary_color,self.secondary_color,item,self.boxs[item],icons.LOCAL_ACTIVITY)
                 
 # def main(page:Page):
 #     primary_color = '#25D366'

@@ -2,11 +2,12 @@ from flet import *
 from dialog import AlertBox
 
 class ResultPage(UserControl):
-    def __init__(self, page, primary_color, secondary_color):
+    def __init__(self, page, primary_color, secondary_color,back_view):
         super().__init__()
         self.page = page
         self.primary_color = primary_color
         self.secondary_color = secondary_color
+        self.back_view = back_view
         self.Result()
     
     def Result(self):
@@ -94,6 +95,19 @@ class ResultPage(UserControl):
                             ),
                         ]
                     )
+                ),
+                CupertinoButton(
+                    width=350,
+                    height=40,
+                    bgcolor=colors.with_opacity(0.2,self.primary_color),
+                    content=Text(
+                        value='Menu',
+                        weight=FontWeight.BOLD,
+                        color=self.primary_color
+                    ),
+                    on_click=lambda e:self.RouteChange(self.back_view),
+                    padding=padding.all(0)
+
                 )
             ],
             vertical_alignment=MainAxisAlignment.CENTER,
@@ -114,13 +128,18 @@ class ResultPage(UserControl):
         if self.page.dialog.open == True:
             self.page.dialog.open = False
             self.page.update()
+    def RouteChange(self,e):
+        self.page.views.append(e)
+        self.page.go('/front_page')
+        self.page.update()
+        print('working properly')
 
 
-def main(page: Page):
-    primary_color = '#DA7756'
-    secondary_color = '#075E54'
-    con = ResultPage(page, primary_color, secondary_color)
-    page.go('/result_page')
+# def main(page: Page):
+#     primary_color = '#DA7756'
+#     secondary_color = '#075E54'
+#     con = ResultPage(page, primary_color, secondary_color)
+#     page.go('/result_page')
 
-if __name__ == '__main__':
-    app(target=main)
+# if __name__ == '__main__':
+#     app(target=main)
