@@ -1,4 +1,5 @@
 from flet import *
+from dialog import AlertBox
 
 class ResultPage(UserControl):
     def __init__(self, page, primary_color, secondary_color):
@@ -47,7 +48,11 @@ class ResultPage(UserControl):
                     ),
                     trailing=Column(
                         controls=[
-                            Icon(icons.MORE_VERT, size=16)
+                            IconButton(
+                                icons.MORE_VERT,
+                                icon_size=18,
+                                on_click=lambda e: self.ClickedButton('Loan Amount')
+                            ),
                         ]
                     )
                 ),
@@ -85,7 +90,7 @@ class ResultPage(UserControl):
                             IconButton(
                                 icons.MORE_VERT,
                                 icon_size=18,
-                                on_click=lambda e: self.ClickedButton('Processing')
+                                on_click=lambda e: self.ClickedButton('Processing Fee Rate')
                             ),
                         ]
                     )
@@ -97,9 +102,14 @@ class ResultPage(UserControl):
         self.page.views.append(result)
 
     def ClickedButton(self, value):
-        if value == 'Processing':
+        if value == 'Loan Amount':
             # Show a dialog or a proper PopupMenu instead
-            pass
+            msg1 = AlertBox(self.page,self.primary_color,self.secondary_color)
+            msg1.AlertMsg('Loan Amount')
+        elif value == 'Processing Fee Rate':
+            # Show a dialog or a proper PopupMenu instead
+            msg1 = AlertBox(self.page,self.primary_color,self.secondary_color)
+            msg1.AlertMsg('Processing Fee Rate')
     def DialogAction(self):
         if self.page.dialog.open == True:
             self.page.dialog.open = False
@@ -107,7 +117,7 @@ class ResultPage(UserControl):
 
 
 def main(page: Page):
-    primary_color = '#25D366'
+    primary_color = '#DA7756'
     secondary_color = '#075E54'
     con = ResultPage(page, primary_color, secondary_color)
     page.go('/result_page')
