@@ -79,12 +79,6 @@ class Calculator(UserControl):
         ResultPage(self.page,self.primary_color,self.secondary_color,value)
         self.page.go('/result_page')
         self.page.update()
-        # if self.page.go == '/front_page':
-        #     self.page.go('/result_page')
-        #     self.page.update()
-        # elif self.page.go == '/result_page':
-        #     self.page.go('/front_page')
-        #     self.page.update()
         
         
 
