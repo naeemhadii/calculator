@@ -10,8 +10,6 @@ class Calculator(UserControl):
         self.page = page
         self.primary_color = primary_color
         self.secondary_color = secondary_color
-        self.values = 'hello world'
-        self.fieldentry = Field(self.page,self.primary_color,self.secondary_color,self.values)
         self.build()
     def build(self):
         self.front_page = View(
@@ -26,11 +24,6 @@ class Calculator(UserControl):
                     image_fit=ImageFit.COVER
                 ),
                 ListTile(
-                    leading=Container(
-                        width=5,
-                        height=40,
-                        bgcolor=self.primary_color
-                    ),
                     title=Text(
                         value='Area Manager',
                         size=12,
@@ -54,7 +47,11 @@ class Calculator(UserControl):
                     ),
                     title_alignment=ListTileTitleAlignment.TOP
                 ),
-                # self.fieldentry.EntryField(),
+                Column(
+                    controls=[
+                        Field(self.page,self.primary_color,self.secondary_color).EntryField('Type your name...')
+                    ]
+                ),
                 CupertinoButton(
                     # text='Go Next',
                     bgcolor=colors.with_opacity(0.3,self.primary_color),
@@ -74,11 +71,12 @@ class Calculator(UserControl):
             horizontal_alignment=CrossAxisAlignment.CENTER
         )
         self.page.views.append(self.front_page)
-
     def ViewResult(self,value):
-        result_page = ResultPage(self.page,self.primary_color,self.secondary_color)
+        ResultPage(self.page,self.primary_color,self.secondary_color)
         self.page.go('/result_page')
         self.page.update()
+
+        
         
         
 

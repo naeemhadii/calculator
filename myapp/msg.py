@@ -12,6 +12,7 @@ class MsgBox(UserControl):
     # here we call the alertbox
     def Msg(self):
         self.dialog = CupertinoAlertDialog(
+                    modal=True,
                     open=True,
                     content=Column(
                         controls=[
@@ -40,7 +41,8 @@ class MsgBox(UserControl):
                                     height=50,
                                     on_click=lambda e: self.ClosedButton(self.dialog),
                                     style=ButtonStyle(
-                                        color='#F44336'
+                                        color=self.primary_color,
+                                        enable_feedback=True
                                     )
                                 ),
                             ],

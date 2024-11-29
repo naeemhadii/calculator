@@ -1,5 +1,6 @@
 from flet import *
 from dialog import AlertBox
+from field import Field
 
 class ResultPage(UserControl):
     def __init__(self, page, primary_color, secondary_color):
@@ -27,7 +28,7 @@ class ResultPage(UserControl):
                                 bgcolor=colors.with_opacity(0.2, self.primary_color),
                                 border_radius=100,
                                 content=Icon(
-                                    icons.MONEY,
+                                    icons.MONEY_ROUNDED,
                                     color=self.primary_color,
                                     size=35
                                 )
@@ -66,7 +67,7 @@ class ResultPage(UserControl):
                                 bgcolor=colors.with_opacity(0.2, self.primary_color),
                                 border_radius=100,
                                 content=Icon(
-                                    icons.LOCAL_ACTIVITY,
+                                    icons.LOCAL_ACTIVITY_ROUNDED,
                                     color=self.primary_color,
                                     size=35
                                 )
@@ -95,6 +96,82 @@ class ResultPage(UserControl):
                         ]
                     )
                 ),
+                ListTile(
+                    leading=Column(
+                        controls=[
+                            Container(
+                                height=50,
+                                width=50,
+                                bgcolor=colors.with_opacity(0.2, self.primary_color),
+                                border_radius=100,
+                                content=Icon(
+                                    icons.FACT_CHECK_ROUNDED,
+                                    color=self.primary_color,
+                                    size=35
+                                )
+                            )
+                        ]
+                    ),
+                    title=Text(
+                        value='Markup Amount',
+                        size=12,
+                        color=colors.with_opacity(0.60, '#000000'),
+                        weight=FontWeight.BOLD
+                    ),
+                    subtitle=Text(
+                        value='5000',
+                        size=24,
+                        color=colors.with_opacity(0.60, '#000000'),
+                        weight=FontWeight.BOLD
+                    ),
+                    trailing=Column(
+                        controls=[
+                            IconButton(
+                                icons.MORE_VERT,
+                                icon_size=18,
+                                on_click=lambda e: self.ClickedButton('Markup Amount')
+                            ),
+                        ]
+                    )
+                ),
+                ListTile(
+                    leading=Column(
+                        controls=[
+                            Container(
+                                height=50,
+                                width=50,
+                                bgcolor=colors.with_opacity(0.2, self.primary_color),
+                                border_radius=100,
+                                content=Icon(
+                                    icons.HANDYMAN_ROUNDED,
+                                    color=self.primary_color,
+                                    size=35
+                                )
+                            )
+                        ]
+                    ),
+                    title=Text(
+                        value='Installment',
+                        size=12,
+                        color=colors.with_opacity(0.60, '#000000'),
+                        weight=FontWeight.BOLD
+                    ),
+                    subtitle=Text(
+                        value='5000',
+                        size=24,
+                        color=colors.with_opacity(0.60, '#000000'),
+                        weight=FontWeight.BOLD
+                    ),
+                    trailing=Column(
+                        controls=[
+                            IconButton(
+                                icons.MORE_VERT,
+                                icon_size=18,
+                                on_click=lambda e: self.ClickedButton('Installment')
+                            ),
+                        ]
+                    )
+                ),
                 CupertinoButton(
                     width=350,
                     height=40,
@@ -113,6 +190,7 @@ class ResultPage(UserControl):
             horizontal_alignment=CrossAxisAlignment.CENTER
         )
         self.page.views.append(result)
+        
 
     def ClickedButton(self, value):
         if value == 'Loan Amount':
@@ -123,21 +201,34 @@ class ResultPage(UserControl):
             # Show a dialog or a proper PopupMenu instead
             msg1 = AlertBox(self.page,self.primary_color,self.secondary_color)
             msg1.AlertMsg('Processing Fee Rate')
+        elif value == 'Markup Amount':
+            # Show a dialog or a proper PopupMenu instead
+            msg1 = AlertBox(self.page,self.primary_color,self.secondary_color)
+            msg1.AlertMsg('Markup Amount')
+        elif value == 'Installment':
+            # Show a dialog or a proper PopupMenu instead
+            msg1 = AlertBox(self.page,self.primary_color,self.secondary_color)
+            msg1.AlertMsg('Installment')
     def DialogAction(self):
         if self.page.dialog.open == True:
             self.page.dialog.open = False
             self.page.update()
     def RouteChange(self):
+        from main import Calculator
+        Calculator(self.page,self.primary_color,self.secondary_color)
         self.page.go('/front_page')
-        self.page.update()
-        print('working properly')
+        print('result page is here')
+
+        # self.page.update()
+
+        
 
 
-def main(page: Page):
-    primary_color = '#DA7756'
-    secondary_color = '#075E54'
-    con = ResultPage(page, primary_color, secondary_color)
-    page.go('/result_page')
+# def main(page: Page):
+#     primary_color = '#DA7756'
+#     secondary_color = '#075E54'
+#     con = ResultPage(page, primary_color, secondary_color)
+#     page.go('/result_page')
 
-if __name__ == '__main__':
-    app(target=main)
+# if __name__ == '__main__':
+#     app(target=main)
