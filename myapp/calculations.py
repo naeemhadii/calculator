@@ -15,6 +15,3 @@ def Calculations(Loan,Markup,Period,Processing):
         return [int(Total_Amount),int(Markup_Amount),int(Installment),int(Processing_Fee)]
     except:
         print('Except block is working here')
-
-
-

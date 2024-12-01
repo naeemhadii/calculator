@@ -1,4 +1,4 @@
-from flet import*
+from flet import Page,UserControl,View,Container,Image,ImageFit,ListTile,Text,FontWeight,colors,Column,ListTileTitleAlignment,CupertinoButton,padding,MainAxisAlignment,CrossAxisAlignment,app
 from result import ResultPage
 from field import Field
 from fields_items import dic_fields

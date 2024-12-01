@@ -1,4 +1,4 @@
-from flet import *
+from flet import CupertinoTextField,Ref
 
 # Define a dictionary with proper references to CupertinoTextField elements
 dic_fields = {
