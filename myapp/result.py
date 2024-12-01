@@ -177,7 +177,7 @@ class ResultPage(UserControl):
                     height=40,
                     bgcolor=colors.with_opacity(0.2,self.primary_color),
                     content=Text(
-                        value='Menu',
+                        value='Find More',
                         weight=FontWeight.BOLD,
                         color=self.primary_color
                     ),

@@ -1,6 +1,7 @@
 from flet import*
 from result import ResultPage
 from field import Field
+from fields_items import dic_fields
 
 # add a class of calculator
 
@@ -49,7 +50,7 @@ class Calculator(UserControl):
                 ),
                 Column(
                     controls=[
-                        Field(self.page,self.primary_color,self.secondary_color).EntryField('Type your name...')
+                        Field(self.page,self.primary_color,self.secondary_color).EntryField(ref,key) for key, ref in dic_fields.items()
                     ]
                 ),
                 CupertinoButton(
@@ -61,7 +62,7 @@ class Calculator(UserControl):
                     padding=padding.all(0),
                     border_radius=5,
                     content=Text(
-                        value='Go Next',
+                        value='Calculate',
                         weight=FontWeight.BOLD
                     ),
                     on_click=lambda e:self.ViewResult(self.front_page)
@@ -75,6 +76,8 @@ class Calculator(UserControl):
         ResultPage(self.page,self.primary_color,self.secondary_color)
         self.page.go('/result_page')
         self.page.update()
+        for key, ref in dic_fields.items():
+            print(ref.current.value)
 
         
         
@@ -84,6 +87,8 @@ class Calculator(UserControl):
 def main(page:Page):
     primary_color = '#DA7756'
     secondary_color = '#075E54'
+    page.vertical_alignment = MainAxisAlignment.CENTER
+    page.horizontal_alignment = CrossAxisAlignment.CENTER
     cal = Calculator(page,primary_color,secondary_color)
     page.go('/front_page')
 if __name__ == '__main__':
