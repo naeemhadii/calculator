@@ -20,7 +20,7 @@ class Calculator(UserControl):
                     height=50,
                     width=360,
                     content=Image(
-                        src='../assets/RCDP-Logo-Final.png'
+                        src='assets/RCDP-Logo-Final.png'
                     ),
                     image_fit=ImageFit.COVER
                 ),
