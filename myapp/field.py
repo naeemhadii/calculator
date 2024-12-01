@@ -24,10 +24,5 @@ class Field(UserControl):
             ),
             cursor_color=colors.with_opacity(0.45,'#000000'),
             cursor_width=2.5,
-            input_filter=InputFilter(
-                regex_string=f'[0-9]',
-                allow=False,
-                replacement_string=' '
-            )
         )
         return field

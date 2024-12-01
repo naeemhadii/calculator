@@ -5,6 +5,8 @@ from fields_items import dic_fields
 from calculations import Calculations
 from dialog import AlertBox
 
+
+
 class Calculator(UserControl):
     def __init__(self,page,primary_color,secondary_color):
         super().__init__()
