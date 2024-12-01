@@ -2,8 +2,8 @@ from flet import*
 from result import ResultPage
 from field import Field
 from fields_items import dic_fields
-
-# add a class of calculator
+from calculations import Calculations
+from dialog import AlertBox
 
 class Calculator(UserControl):
     def __init__(self,page,primary_color,secondary_color):
@@ -20,7 +20,7 @@ class Calculator(UserControl):
                     height=50,
                     width=360,
                     content=Image(
-                        src='assets/RCDP-Logo-Final.png'
+                        src='../assets/RCDP-Logo-Final.png'
                     ),
                     image_fit=ImageFit.COVER
                 ),
@@ -34,7 +34,7 @@ class Calculator(UserControl):
                     subtitle=Text(
                         value='Syed Mohsin Shah Sahib',
                         weight=FontWeight.BOLD,
-                        size=14,
+                        size=20,
                         color=colors.with_opacity(0.50,'#000000')
                     ),
                     trailing=Column(
@@ -54,7 +54,7 @@ class Calculator(UserControl):
                     ]
                 ),
                 CupertinoButton(
-                    # text='Go Next',
+                    # text='Go Next,
                     bgcolor=colors.with_opacity(0.3,self.primary_color),
                     color=self.primary_color,
                     width=350,
@@ -73,12 +73,36 @@ class Calculator(UserControl):
         )
         self.page.views.append(self.front_page)
     def ViewResult(self,value):
-        ResultPage(self.page,self.primary_color,self.secondary_color)
-        self.page.go('/result_page')
-        self.page.update()
+        list = []
         for key, ref in dic_fields.items():
-            print(ref.current.value)
+            list.append(ref.current.value)
+        try:
+            cal = Calculations(
+                float(list[0]),
+                float(list[1]),
+                float(list[2]),
+                float(list[3]),
+            )
 
+            for key , ref in dic_fields.items():
+                if key == 'Loan Amount':
+                    ref.current.value = cal[0]
+                if key == 'Markup Rate':
+                    ref.current.value = cal[1]
+                if key == 'Installment':
+                    ref.current.value = cal[2]
+                if key == 'Processing Rate':
+                    ref.current.value = cal[3]
+            
+            ResultPage(self.page,self.primary_color,self.secondary_color)
+            self.page.go('/result_page')
+            self.page.update()      
+        except:
+            msg1 = AlertBox(self.page,self.primary_color,self.secondary_color)
+            msg1.AlertMsg('Value Error')
+        # ref_value = []
+        # for key, ref in dic_fields.items():
+        #     print(ref)
         
         
         

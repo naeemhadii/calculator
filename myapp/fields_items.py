@@ -4,6 +4,6 @@ from flet import *
 dic_fields = {
     'Loan Amount': Ref[CupertinoTextField](),
     'Markup Rate': Ref[CupertinoTextField](),
-    'Tenor period': Ref[CupertinoTextField](),
+    'Installment': Ref[CupertinoTextField](),
     'Processing Rate': Ref[CupertinoTextField](),
 }
