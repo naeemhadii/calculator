@@ -100,9 +100,6 @@ class Calculator(UserControl):
         except:
             msg1 = AlertBox(self.page,self.primary_color,self.secondary_color)
             msg1.AlertMsg('Value Error')
-        # ref_value = []
-        # for key, ref in dic_fields.items():
-        #     print(ref)
         
         
         

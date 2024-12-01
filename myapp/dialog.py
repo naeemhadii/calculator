@@ -28,10 +28,3 @@ class AlertBox(UserControl):
                 self.loan_dialog = MsgBox(self.page,self.primary_color,self.secondary_color,item,self.boxs[item],icons.RECEIPT)
             elif item == 'Value Error':
                 self.loan_dialog = MsgBox(self.page,self.primary_color,self.secondary_color,item,self.boxs[item],icons.HANDYMAN_ROUNDED)
-                
-# def main(page:Page):
-#     primary_color = '#25D366'
-#     secondary_color = '#075E54'
-#     AlertBox(page,primary_color,secondary_color)
-# if __name__ == '__main__':
-#     app(target=main)

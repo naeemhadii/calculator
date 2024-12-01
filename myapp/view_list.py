@@ -72,11 +72,3 @@ class ListCards(UserControl):
         if self.page.dialog.open == True:
             self.page.dialog.open = False
             self.page.update()
-
-# def main(page:Page):
-#     primary_color = '#DA7756'
-#     secondary_color = '#075E54'
-#     ListCards(page,primary_color,secondary_color)
-
-# if __name__ == '__main__':
-#     app(target=main)

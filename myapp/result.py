@@ -1,7 +1,6 @@
 from flet import *
 from view_list import ListCards
 from fields_items import dic_fields
-from calculations import Calculations
 from icon_file import icon_mapping
 
 class ResultPage(UserControl):
@@ -52,16 +51,3 @@ class ResultPage(UserControl):
         from main import Calculator
         Calculator(self.page,self.primary_color,self.secondary_color)
         self.page.go('/front_page')
-        print('result page is here')
-
-        
-
-
-# def main(page: Page):
-#     primary_color = '#DA7756'
-#     secondary_color = '#075E54'
-#     con = ResultPage(page, primary_color, secondary_color)
-#     page.go('/result_page')
-
-# if __name__ == '__main__':
-#     app(target=main)
