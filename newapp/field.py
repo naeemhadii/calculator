@@ -1,4 +1,4 @@
-from flet import Page,UserControl,CupertinoTextField,padding,colors,border,TextStyle,FontWeight
+from flet import*
 
 class Field(UserControl):
     def __init__(self,page,primary_color,secondary_color):

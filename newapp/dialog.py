@@ -1,4 +1,4 @@
-from flet import Page,UserControl,icons
+from flet import*
 from msg import MsgBox
 class AlertBox(UserControl):
     def __init__(self,page,primary_color,secondary_color):

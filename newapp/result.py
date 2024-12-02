@@ -48,6 +48,6 @@ class ResultPage(UserControl):
         self.page.views.append(result)
         
     def RouteChange(self):
-        from main import Calculator
+        from newapp.main import Calculator
         Calculator(self.page,self.primary_color,self.secondary_color)
         self.page.go('/front_page')

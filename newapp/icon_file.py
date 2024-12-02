@@ -1,4 +1,4 @@
-from flet import icons
+from flet import*
 icon_mapping = {
     "Loan Amount": icons.MONEY,
     "Markup Rate": icons.PERCENT,

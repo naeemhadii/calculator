@@ -1,10 +1,9 @@
-from flet import Page,UserControl,View,Container,Image,ImageFit,ListTile,Text,FontWeight,colors,Column,ListTileTitleAlignment,CupertinoButton,padding,MainAxisAlignment,CrossAxisAlignment,app
+from flet import*
 from result import ResultPage
 from field import Field
 from fields_items import dic_fields
 from calculations import Calculations
 from dialog import AlertBox
-
 
 
 class Calculator(UserControl):
@@ -18,14 +17,6 @@ class Calculator(UserControl):
         self.front_page = View(
             route='/front_page',
             controls=[
-                Container(
-                    height=50,
-                    width=360,
-                    content=Image(
-                        src='assets/RCDP-Logo-Final.png'
-                    ),
-                    image_fit=ImageFit.COVER
-                ),
                 ListTile(
                     title=Text(
                         value='Area Manager',
@@ -59,7 +50,7 @@ class Calculator(UserControl):
                     # text='Go Next,
                     bgcolor=colors.with_opacity(0.3,self.primary_color),
                     color=self.primary_color,
-                    width=350,
+                    width=370,
                     height=40,
                     padding=padding.all(0),
                     border_radius=5,
